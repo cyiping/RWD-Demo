@@ -1,0 +1,53 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery16 example</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<h1>jQuery Click Event</h1>
+    <button class="add">Click me to add new item</button>
+    <ul class="li">
+        <li>I am old item: <button class="delete">Delete</button>.</li>
+        <li>I am old item: <button class="delete">Delete</button>.</li>
+        <li>I am old item: <button class="delete">Delete</button>.</li>
+        <li>I am old item: <button class="delete">Delete</button>.</li>
+    </ul>
+
+	<h1>jQuery On Event</h1>
+    <button class="add2">Click me to add new item</button>
+    <button id="off">Click me to off event</button>
+    <ul class="li2">
+        <li>I am old item: <button class="delete2">Delete</button>.</li>
+        <li>I am old item: <button class="delete2">Delete</button>.</li>
+        <li>I am old item: <button class="delete2">Delete</button>.</li>
+        <li>I am old item: <button class="delete2">Delete</button>.</li>
+    </ul>
+
+	<script>
+		$(".add").click(function(){
+			$(".li").append('<li>I am new item: <button class="delete">Delete</button>.</li>');
+		});
+		$(".add2").click(function(){
+			$(".li2").append('<li>I am new item: <button class="delete2">Delete</button>.</li>');
+		});
+		$(".delete").bind('click', function(){
+			$(this).parent().remove();
+		});		
+	/*    
+		$(".delete").click(function(){
+			$(this).parent().remove();
+		});
+	*/
+		$(document).on('click', '.delete2', function(event){
+			$(this).parent().remove();
+		});
+		$("#off").click(function(){
+			$(document).off('click', '.delete2');
+		});
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>traditional event handling example</title>
+</head>
+<body>
+    <button id="myButton">click me</button>
+    <script>    
+    function eventHandler() {
+      alert('catch event!');
+    }
+    var ele = document.getElementById('myButton');
+    ele.onclick = eventHandler;
+  //  ele.onclick = null; //cancle binding
+    </script>
+</body>
+</html>

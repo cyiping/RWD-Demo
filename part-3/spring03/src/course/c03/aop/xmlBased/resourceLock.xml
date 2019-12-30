@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd ">
+
+	<bean id="resource" class="course.c03.aop.ResourceImpl" />
+
+	<bean id="lockable" class="course.c03.aop.LockableImpl" />
+
+	<bean id="resourceLockAspect" class="course.c03.aop.xmlBased.ResourceLockAspect" />
+
+	<aop:config>
+		<aop:aspect ref="resourceLockAspect">
+
+			<aop:declare-parents 
+				types-matching="course.c03.aop.Resource+"
+				implement-interface="course.c03.aop.Lockable" 
+				delegate-ref="lockable" />
+
+			<aop:around
+				pointcut="execution(* *.*.*.Resource.setContent(String)) and args(content) and this(lockable)"
+				method="beforeSetContent" />
+				
+		</aop:aspect>
+	</aop:config>
+
+</beans>

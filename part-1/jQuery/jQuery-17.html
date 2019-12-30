@@ -1,0 +1,68 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery17 example</title>
+	<style>
+		.demo {
+			background: yellow;
+			color: blue;
+		}
+		.demo3 {
+			background: yellow;
+			color: blue;
+		}
+	</style>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+	<p id="demo1" class="demo" style="display:none">animation show(5000)</p>
+	<p><button onclick="$(this).remove(); $('#demo1').show(5000)">5秒完成呈現</button></p>
+
+	<hr>
+
+	<p id="demo2" class="demo">animation hide('fast')</p>
+	<p><button onclick="$(this).remove(); $('#demo2').hide('fast')">快速隱藏</button></p>
+	
+	<hr>
+	
+	<p class="demo3">animation toggle on</p>
+	<p class="demo3" style="display: none">animation toggle off</p>
+	<p><button onclick="$('.demo3').toggle()">切換</button></p>
+
+	<hr>	
+	
+	<p id="demo4" class="demo" style="display: none">slideDown(5000)</p>
+	<p><button onclick="$(this).remove(); $('#demo4').slideDown(5000)">5秒完成下滑</button></p>
+	
+	<hr>
+	
+	<p id="demo5" class="demo">animation slideUp(3000) and callback</p>
+	<p><button onclick="$(this).remove(); $('#demo5').slideUp(5000,function(){alert('隱藏完成')})">5秒完成上捲</button></p>
+	
+	<hr>	
+	
+	<p id="demo6" class="demo" style="display: none">animation fadeIn(5000)</p>
+	<p><button onclick="$(this).remove(); $('#demo6').fadeIn(5000)">5秒完成淡入</button></p>	
+
+	<hr>
+
+	<p id="demo7" class="demo">animation fadeOut(5000)</p>
+	<p><button onclick="$(this).remove(); $('#demo7').fadeOut(5000)">5秒完成淡出</button></p>
+
+	<hr>	
+	
+	<p id="demo8" class="demo" style="display: none">animation fadeTo('slow', 0.5)</p>
+	<p><button onclick="$(this).remove(); $('#demo8').fadeTo('slow', 0.5)">緩慢完成元素透明度調整，透明度為0.5 (0~1)</button></p>
+	
+	<hr>
+
+	<p id="demo9" class="demo">animation demo</p>
+	<p><button onclick="$(this).remove(); $('#demo9').animate({width:'70%', opacity:0.4, marginLeft:'0.6in', fontSize:'3em', borderWidth:'10px'}, 1500, 'linear')">複合特效</button></p>
+	
+	<hr>
+	
+
+</body>
+</html>

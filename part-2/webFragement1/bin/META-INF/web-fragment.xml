@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-fragment id="WebFragment_ID" version="3.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-fragment_3_1.xsd">
+	<display-name>webFragement1</display-name>
+
+	<name>webFragement1</name>
+
+	<ordering>
+		<before>
+			<others />
+		</before>
+	</ordering>
+
+	<context-param>
+		<param-name>contextParam2</param-name>
+		<param-value>this is value of contextParam2 from webFragement1</param-value>
+	</context-param>
+
+</web-fragment>

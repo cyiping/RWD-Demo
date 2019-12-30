@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Attribute Function Test</title>
+</head> 
+<body>
+    <a id="lk" href="https://tw.yahoo.com/" target="_blank" test-attr>
+        tw.yahoo.com
+    </a>
+    <script>
+        var a = document.getElementById('lk');
+
+        //存在的屬性，且有值
+        console.log('has href: ' + a.hasAttribute('href'));   //true        
+        console.log('get href: ' + a.getAttribute('href'));    //https://tw.yahoo.com/      
+        
+        //不存在的屬性
+        console.log('has xyz: ' + a.hasAttribute('xyz'));    //false
+        console.log('get xyz: ' + a.getAttribute('xyz'));    //null
+        
+        //存在的屬性，但無值 
+        console.log('has test-attr: ' + a.hasAttribute('test-attr'));   //true
+        console.log('get test-attr: ' + a.getAttribute('test-attr'));   //         
+        //移除屬性
+        a.removeAttribute('test-attr');
+        console.log('has test-attr: ' + a.hasAttribute('test-attr'));   //false
+        console.log('get test-attr: ' + a.getAttribute('test-attr'));   //null       
+		
+        //修改屬性
+        a.setAttribute('target', '_self');
+        console.log('get target: ' + a.getAttribute('target'));    //_self    
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>inline key events handling example</title>
+<script>
+	var res = "";
+	function keydown(event, t) {
+		console.log(event.keyCode + ", " + t.value);
+	}
+	function keypress(event, t) {
+		if (window.event)
+			console.log(event.keyCode + ", " + t.value);
+		else
+			console.log(event.charCode + ", " + t.value);
+	}
+	function keyup(event, t) {
+		console.log(event.keyCode + ", " + t.value);
+	}
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>keydown:</td>
+			<td><input type="text" id="keydown" onkeydown="keydown(event,this);" /></td>
+		</tr>
+		<tr>
+			<td>keypress:</td>
+			<td><input type="text" id="keypress" onkeypress="keypress(event,this);"/></td>
+		</tr>
+		<tr>
+			<td>keyup:</td>
+			<td><input type="text" id="keyup" onkeyup="keyup(event,this);" /></td>
+		</tr>
+	</table>
+</body>
+</html>

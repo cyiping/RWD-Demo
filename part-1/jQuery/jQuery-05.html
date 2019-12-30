@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery05 example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        選擇居住縣市：
+        <select id="county">
+            <option value="台北市">台北市
+            <option value="新北市" selected>新北市
+            <option value="台中市">台中市
+            <option value="台南市">台南市
+            <option value="高雄市">高雄市
+        </select>
+        <hr>
+        最高學歷： 
+        <input type="radio" name="education" value="high_school">高中(含以下)
+        <input type="radio" name="education" value="colleage" checked>大專
+        <input type="radio" name="education" value="graduate_school">研究所(含以上)
+        <hr>
+        選擇您的興趣（可以複選）：     
+        <input type="checkbox" name="interests" value="travel" checked>旅遊
+        <input type="checkbox" name="interests" value="reading" checked>閱讀
+        <input type="checkbox" name="interests" value="music">音樂
+        <input type="checkbox" name="interests" value="sport">運動      
+        <hr>
+        其他： <input type="text" id="comment" value="some comments......">
+        <hr>
+        <button id="myButton1">selected values</button>
+        <button id="myButton2">fit value</button>
+    </form> 
+    <script>
+    $('#myButton1').click(function() {
+    
+        // 取得下拉選單 (select box) 的值
+        var a = $('#county').val();
+        
+        // 取得 radio 欄位的選取值
+        var b = $('input:radio[name=education]:checked').val();     
+        
+        // 取得 checkbox 欄位的(複)選取值
+        var c = '';
+        $('input:checkbox:checked').each(function(){        
+            c += $(this).val() + ',';
+        });
+        alert(a + "; " + b + "; " + c);
+    }); 
+    $('#myButton2').click(function() {
+        alert($('#comment').val());
+        // 改變input text值
+        $('#comment').val('new comments...');
+        alert($('#comment').val());
+    }); 
+    </script>
+</body>
+</html>

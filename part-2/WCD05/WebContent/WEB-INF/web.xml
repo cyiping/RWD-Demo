@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>WCD05</display-name>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<context-param>
+		<param-name>contextParam</param-name>
+		<param-value>this is value of contextParam</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>MyServletName</servlet-name>
+		<servlet-class>course.c05.MyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyServletName</servlet-name>
+		<url-pattern>/MyServlet</url-pattern>
+		<url-pattern>/YourServlet</url-pattern>
+		<url-pattern>/HisServlet/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ParamServlet</servlet-name>
+		<servlet-class>course.c05.ParamServlet</servlet-class>
+		<init-param>
+			<param-name>initParam1</param-name>
+			<param-value>value1</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ParamServlet</servlet-name>
+		<url-pattern>/ParamServlet</url-pattern>
+	</servlet-mapping>
+
+	<absolute-ordering>
+		<name>webFragement1</name>
+		<others />
+	</absolute-ordering>
+
+</web-app>

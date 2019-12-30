@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd ">
+
+	<bean id="weapon" class="course.c01.Gun" />
+
+	<bean id="mySoldier" class="course.c01.MySoldierOK">
+		<constructor-arg ref="weapon" />
+	</bean>
+	
+	<bean id="alertAspectBean" class="course.c01.aop.Alert" />
+	
+	<aop:config>
+	
+		<aop:pointcut id="alertPointcut" 
+			expression="execution(* course.c01.Soldier.destroyTarget(..))" />
+	
+		<aop:aspect id="alertAspect" ref="alertAspectBean">
+	
+			<aop:before pointcut-ref="alertPointcut" method="beforeAttack" />
+			<aop:after pointcut-ref="alertPointcut" method="afterAttack" />
+			
+		</aop:aspect>
+	</aop:config>
+</beans>

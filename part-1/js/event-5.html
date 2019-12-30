@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>addEventListener example</title>
+</head>
+<body>
+    <button id="bt">click me</button>
+    <button id="bt2">click me2</button>
+    <script>
+        function eventHandler() {
+            alert('catch event!');
+        }
+        function eventHandler2() {
+            alert('catch event 2!');
+        }
+		var btn = document.getElementById('bt');
+        // 同時執行 eventHandler/eventHandler2 函數
+        btn.addEventListener('click', eventHandler);
+        btn.addEventListener('click', eventHandler2);
+
+        // 當網頁載入時，執行這個 callback 函數
+        window.addEventListener('load', function() {
+            alert('page loaded!');
+        });
+    </script>
+</body>
+</html>

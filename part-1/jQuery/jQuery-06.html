@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery06 example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <p id="p1" style="background-color:red; color:blue; font-size:51px;">
+        paragraph 1
+    </p>
+    <p id="p2" style="background-color:red; color:blue; font-size:52px;">
+        paragraph 2
+    </p>
+    <button id="bt">click me</button>
+    <script>
+    $('#bt').click(function() {
+        alert($('p').css('font-size'));
+        $('#p1').css('background-color', 'black'); //設為黑色
+        $('p').css('opacity', '0.5');   //背景透明度設為半透明
+        $('p').css({    //同時設定多組CSS
+            color: 'green',	//屬性不用單、雙引號包含
+            'font-size': '100px'
+        });     
+    }); 
+    </script>
+</body>
+</html>

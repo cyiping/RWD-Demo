@@ -1,0 +1,13 @@
+<html>
+<head>
+	<title>inline event handling example</title>
+</head>
+<body>
+	<button id="myButton" onclick="eventHandler(this);">click me</button>
+	<script>
+    function eventHandler(ele) {
+		alert(ele.getAttribute('onclick'));
+    }
+	</script>
+</body>
+</html>

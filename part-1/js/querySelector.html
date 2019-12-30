@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>querySelector example</title>
+</head> 
+<body>
+    <p>content-1</p>
+    <p class="test">content-2</p>
+    <p>content-3</p>
+    <p class="test">content-4</p>
+    <div>
+        <form>
+            username: <input class="main" name="username" /> <br>
+            password: <input class="main" name="password" />
+        </form> 
+    </div>
+    <script>
+        // 找出 class name 是 test 的 HTML 元素，只第一個
+        var el1 = document.querySelector('.test');
+        console.log(el1);
+        // 找出 <div> 元素下的 <form>，且name=username的<input> 子元素 
+        var el2 = document.querySelector('div > form > input[name=username]');
+        console.log(el2);
+    </script>
+</body>
+</html>

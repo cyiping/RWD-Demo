@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>jQuery03 example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <textarea rows="10" cols="50" id="ta01" placeholder="textarea test">    
+    </textarea>
+    <br>
+    <button id="myButton">click me</button>
+    <script>
+    $('#myButton').click(function() {
+        //getter
+        alert('before... ' + $('#ta01').attr('placeholder'));       
+        //setter
+        $('#ta01').attr('placeholder', 'placeholder is changed');       
+        //$(document.getElementById('ta01')).attr('placeholder', 'placeholder is changed');     
+        //getter
+        alert('after... ' + $('#ta01').attr('placeholder'));        
+        // 以指定key/value的方式，同時修改多組屬性
+        $('#ta01').attr({
+            rows: "5",
+            cols: "100"
+        });
+        //remove
+        $('#ta01').removeAttr('maxlength')      
+    }); 
+    </script>
+</body>
+</html>

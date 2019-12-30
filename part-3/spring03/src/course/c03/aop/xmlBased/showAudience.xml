@@ -1,0 +1,64 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd ">
+
+	<bean id="show" class="course.c03.aop.ShowImpl" />
+
+	<bean id="audience" class="course.c03.aop.xmlBased.Audience" />
+
+	<aop:config>
+		<aop:aspect ref="audience">
+			<aop:before pointcut="execution(** course.c03.aop.Show.play(..))"
+				method="beQuiet" />
+			<aop:after-returning pointcut="execution(** course.c03.aop.Show.play(..))"
+				method="applause" />
+			<aop:after-throwing pointcut="execution(** course.c03.aop.Show.play(..))"
+				method="demandRefund" />
+			<aop:after pointcut="execution(** course.c03.aop.Show.play(..))"
+				method="leave" />
+		</aop:aspect>
+	</aop:config>
+
+<!-- 
+
+	<aop:config>
+		<aop:aspect ref="audience">
+			<aop:before pointcut="execution(** course.c03.aop.Show.play(..))"
+				method="beQuiet" />
+			<aop:after-returning pointcut="execution(** course.c03.aop.Show.play(..))"
+				method="applause" />
+			<aop:after-throwing pointcut="execution(** course.c03.aop.Show.play(..))"
+				method="demandRefund" />
+			<aop:after pointcut="execution(** course.c03.aop.Show.play(..))"
+				method="leave" />
+		</aop:aspect>
+	</aop:config>
+ 
+
+	<aop:config>
+		<aop:aspect ref="audience">
+			<aop:pointcut id="playShow"
+				expression="execution(** course.c03.aop.Show.play(..))" />
+			<aop:before pointcut-ref="playShow" method="beQuiet" />
+			<aop:after-returning pointcut-ref="playShow" method="applause" />
+			<aop:after-throwing pointcut-ref="playShow"	method="demandRefund" />
+			<aop:after pointcut-ref="playShow" method="leave" />
+		</aop:aspect>
+	</aop:config>
+
+
+	<bean id="audienceAround" class="course.c03.aop.xmlBased.AudienceAround" />
+	<aop:config>
+		<aop:aspect ref="audienceAround">
+			<aop:pointcut id="playShow"
+				expression="execution(** course.c03.aop.Show.play(..))" />
+			<aop:around pointcut-ref="playShow" method="aroundShow" />
+		</aop:aspect>
+	</aop:config>
+
+ -->
+
+</beans>

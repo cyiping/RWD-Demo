@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>WCD12</display-name>
+
+	<security-role>
+		<description>this is for sales</description>
+		<role-name>sales</role-name>
+	</security-role>
+
+	<security-role>
+		<description>this is for admin</description>
+		<role-name>admin</role-name>
+	</security-role>
+
+
+	<servlet>
+		<servlet-name>testRoleSales</servlet-name>
+		<servlet-class>course.c12.TestRoleSales</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>testRoleSales</servlet-name>
+		<url-pattern>/testRoleSales</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>testReferenceRole</servlet-name>
+		<servlet-class>course.c12.TestReferenceRole</servlet-class>
+		<security-role-ref>
+			<description>
+				test reference role
+			</description>
+			<role-name>myAdmin</role-name>
+			<role-link>admin</role-link>
+		</security-role-ref>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>testReferenceRole</servlet-name>
+		<url-pattern>/testReferenceRole</url-pattern>
+	</servlet-mapping>
+
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>sales pages</web-resource-name>
+			<url-pattern>/secure/*</url-pattern>
+			<url-pattern>/mixed/secure3.jsp</url-pattern>
+			<url-pattern>/testRoleSales</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>sales</role-name>
+		</auth-constraint>
+		<!-- 	
+		Need SSL, 
+		and will redirect from http://localhost:8080/WCD12/secure/secure1.jsp, 
+		to https://localhost:8443/WCD12/secure/secure1.jsp -->
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+		 
+	</security-constraint>
+
+<!--   
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+-->
+<!--  -->
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login/login.jsp</form-login-page>
+			<form-error-page>/login/login-fail.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+
+
+	<error-page>
+		<!-- Forbidden directory listing <error-code>403</error-code>-->
+		<location>/error403.jsp</location>
+	</error-page>
+
+</web-app>

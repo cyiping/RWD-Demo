@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title></title>
+</head> 
+<body>
+    <a id="lk" href="https://tw.yahoo.com/" target="_blank" test-attr>
+        tw.yahoo.com
+    </a>
+    <script>
+        var a = document.getElementById('lk');             
+        var attr = a.attributes['href'];        
+        console.log('name: ' + attr.name);  //href
+        console.log('value: ' + attr.value); //https://tw.yahoo.com/
+        console.log('==============================');
+        var attr;
+        for (var i=0; i < a.attributes.length; ++i) {
+            attr = a.attributes[i];
+            console.log(attr.name + ': ' + attr.value);
+        }
+        /*
+        id: myHyperlink
+        href: https://tw.yahoo.com/
+        target: _blank
+        test-attr: 
+        */              
+    </script>
+</body>
+</html>

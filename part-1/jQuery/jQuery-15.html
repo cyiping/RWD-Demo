@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery15 example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    p {background-color:yellow;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p id="p1"> - p1 - </p> 
+        <p id="p2"> - p2 - </p> 
+        <p id="p3"> - p3 - </p> 
+    </div>
+    <br>
+    <button id="myButton1">bind click to p3</button>
+    <button id="myButton2">unbind click from p3</button>
+    <button id="myButton3">bind jimEvent to p3</button>
+    <button id="myButton4">trigger jimEvent event on p3</button>
+    <button id="myButton5">one time trigger</button>
+    <script>
+    $('#p1').hover(
+        function() {
+            $(this).append($('<span>***</span>'));
+        }, 
+        function() {
+            $(this).find('span:last').remove();
+        }
+    );      
+    $('#p2').mouseenter(
+                function() {
+                    $(this).append($('<span>***</span>'));
+                }
+           ).mouseleave(
+                function() {
+                    $(this).find('span:last').remove();
+                }
+           );           
+    $('#myButton1').click(function() {      
+        $('#p3').bind('click', function() {
+            alert('#p3 was clicked');
+        }); 
+    });
+    $('#myButton2').click(function() {      
+        $('#p3').unbind('click');
+    //  $('#p3').unbind();
+    });
+    $('#myButton3').click(function() {      
+        $('#p3').bind('jimEvent', function() {
+            alert('jimEvent occurred!!');
+        }); 
+    });
+    $('#myButton4').click(function() {      
+        $('#p3').trigger('jimEvent');
+    //  $('#p3').trigger('click');
+    }); 
+    $('#myButton5').one('click', function() {
+        alert('只跑一次!');
+    }); 
+    </script>
+</body>
+</html>

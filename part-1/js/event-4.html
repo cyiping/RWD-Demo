@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>addEventListener example</title>
+</head>
+<body>
+  <button id="bt">click me</button>
+  <button id="bt2">click me2</button>
+  <script>
+    function eventHandler() {
+      alert('catch event!');
+    }
+
+    //  當使用者用滑鼠點擊頁面時，執行 eventHandler 函數
+    document.getElementById('bt').addEventListener('blur', eventHandler);
+  //    document.addEventListener('click', eventHandler);
+
+    // 當網頁載入時，執行這個 callback 函數
+    window.addEventListener('load', function() {
+      alert('page loaded!');
+    });
+  </script>
+</body>
+</html>

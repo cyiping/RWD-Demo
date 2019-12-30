@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="WCD05">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="webFragement2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/webFragement2/webFragement2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="webFragement1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/webFragement1/webFragement1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="WCD05"/>
+        <property name="java-output-path" value="/WCD05/build/classes"/>
+    </wb-module>
+</project-modules>

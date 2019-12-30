@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>addEventListener example</title>
+</head>
+<body>
+    <button id="bt">click me</button>
+    <button id="rbt">remove event</button>
+    <script>
+        function eventHandler() {
+            alert('catch event!');
+        }
+        var bt = document.getElementById('bt');
+        var rbt = document.getElementById('rbt');
+        bt.addEventListener('click', eventHandler);
+        rbt.addEventListener('click', function() {
+            bt.removeEventListener('click', eventHandler);
+            alert('eventHandler has been removed from bt!');
+        });
+    </script>
+</body>
+</html>

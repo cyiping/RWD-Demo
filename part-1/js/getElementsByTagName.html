@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>getElementsByTagName example</title>
+</head> 
+<body>
+    <p>content-1</p>
+    <p>content-2</p>
+    <script>
+        // 取得頁面上所有的 <p> 元素
+        var ps = document.getElementsByTagName('p');
+		alert('changing paragraph color...');
+        // 將所有的 <p> 元素的文字顏色都改色
+        for (var i=0; i<ps.length; ++i) {
+            ps[i].style.color = 'red';
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>jQuery04 example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    /*class selector*/
+    .myColor {
+        background-color:red;
+    }
+    .myFont {
+        font-size:50px;
+    }
+    </style>
+</head>
+<body>
+    <p id="mp" class="myFont">test</p>
+    <button id="myButton1">add class</button>
+    <button id="myButton2">remove class</button>
+    <script>
+    $('#myButton1').click(function() {
+        $('#mp').addClass('myColor');
+    //  $('#mp').attr('class', 'myColor'); //將只剩下myColor
+    }); 
+    $('#myButton2').click(function() {
+        $('#mp').removeClass('myColor');
+    }); 
+    </script>
+</body>
+</html>

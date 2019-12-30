@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd ">
+
+	<bean id="resource" class="course.c03.aop.ResourceImpl" />
+
+	<bean id="resourceAspect" class="course.c03.aop.xmlBased.ResourceAspect" />
+
+	<aop:config>
+		<aop:aspect ref="resourceAspect">
+			<aop:pointcut id="setResourceContent"
+				expression="execution(* course.c03.aop.Resource.setContent(String)) and args(content)" />
+			<aop:before pointcut-ref="setResourceContent" method="beforeSetContent" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>

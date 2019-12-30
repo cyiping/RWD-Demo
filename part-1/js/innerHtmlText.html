@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>innerHTML、outerHTML、innerText example</title>
+</head> 
+<body>
+    <p id="p1"><b>content-1</b></p>
+    <div id="div1">
+        <form id="f1">
+            user: <input class="main" name="username" /> <br>
+            password: <input class="main" name="password" />
+        </form> 
+    </div>
+    <script>
+        var f = document.getElementById('f1');    
+        console.log(f.innerHTML);
+        //user: <input class="main" name="username"> <br>
+        //password: <input class="main" name="password">
+        var p = document.getElementById('p1'); 
+        console.log("innerText: " + p.innerText);  //content-1
+        console.log("innerHTML: " + p.innerHTML);  //<b>content-1</b>
+        console.log("outerHTML: " + p.outerHTML);  //<p id="p1"><b>content-1</b></p>
+
+    //  p.innerHTML = '<b>123</b>';
+        p.innerText = '<b>123</b>';
+    </script>
+</body>
+</html>
